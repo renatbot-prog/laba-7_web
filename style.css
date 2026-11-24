@@ -1,0 +1,211 @@
+/* Задание 2: Цветовая палитра (основа взята с картинки) */
+:root {
+    --bg-color: #f9f9f9;
+    --header-bg: #ffffff;
+    --nav-bg: #f2e290; /* Желтый из макета */
+    --card-bg: #e3d0e8; /* Сиреневый из макета */
+    --text-color: #333333;
+    --footer-bg: #f2e290; /* Желтый из макета */
+    --border-color: #cccccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Шапка --- */
+.header {
+    background-color: var(--header-bg);
+    display: flex;
+    align-items: center;
+    padding: 30px 20px;
+    border-bottom: 2px solid var(--border-color);
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+/* Зеленая картинка в шапке */
+.header-image-placeholder {
+    width: 200px;
+    height: 150px;
+    background-color: #b5cd9f; /* Зеленый из макета */
+    border: 2px solid #333; /* Рамка как на рисунке */
+    flex-shrink: 0;
+    border-radius: 8px;
+}
+
+.header-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.header-content p {
+    margin-bottom: 10px;
+}
+
+/* --- Меню (Желтая полоса) --- */
+.navbar {
+    background-color: var(--nav-bg);
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    padding: 10px 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+    .nav-links a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: bold;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: opacity 0.3s ease;
+    }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+/* --- Основной контент --- */
+.main-content {
+    flex: 1; /* Чтобы подвал прижимался к низу */
+    padding: 40px 0;
+}
+
+.content-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 2px solid #333;
+    padding: 20px;
+    width: 300px;
+    min-height: 150px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #555;
+        padding-bottom: 5px;
+        display: inline-block;
+    }
+
+.text-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* --- Подвал (Желтая полоса) --- */
+.footer {
+    background-color: var(--footer-bg);
+    border-top: 2px solid #333;
+    padding: 20px 0;
+    margin-top: auto; /* Прижимает подвал к низу страницы */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text p {
+    margin-bottom: 5px;
+}
+
+/* Кнопка в подвале (как в макете - серая овальная кнопка) */
+.btn-submit {
+    display: inline-block;
+    background-color: #d9d9d9;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 40px;
+    border: 2px solid #333;
+    border-radius: 20px; /* Овальная форма */
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+    .btn-submit:hover {
+        background-color: #bfbfbf;
+    }
+
+/* --- Задание 7: Адаптивная верстка --- */
+
+/* Планшеты и небольшие экраны */
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-image-placeholder {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .content-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+/* Мобильные телефоны */
+@media (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .header-content h1 {
+        font-size: 1.5rem;
+    }
+}
